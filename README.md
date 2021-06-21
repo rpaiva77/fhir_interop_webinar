@@ -36,7 +36,7 @@ La configuración de un repositorio de recursos [FHIR R4](https://www.hl7.org/fh
 
 1. Descargar el repositorio
 ```shell
-git clone ***GITHUB_REPO***
+git clone https://github.com/rpaiva77/fhir_interop_webinar
 cd webinar_fhir_profiling
 ```
 
