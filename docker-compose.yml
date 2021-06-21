@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  iris:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8090:1972
+      - 8091:52773
+      - 8092:53773
+    volumes:
+      - ./:/irisdev
+      - ./ISC:/tmp/ISC

@@ -1,0 +1,33 @@
+Guión del webinar:
+
+1) revisar el webinar anterior. Hacer get patient al PatientId 1. Buscar el primer Observation - 5. Hacer el Get ao Observation 5.
+
+2) hacer el cambio en FoundationProduction para InterOpProdoction:
+    - cambiar el endpoint fhir/r4 en Interoperability > Service Config Name = HS.FHIRServer.Interop.Service
+    - añadir el HS.FHIRServer.Interop.Service y el HS.FHIRServer.Interop.Operation a la Production
+    - Get al Patient 1 y enseñar la traza
+3) Crear un endpoint proxy para el repositorio fhir/r4
+    - quitar el HS.FHIRServer.Interop.Service
+    - añadir nuevo endpoint proxyfhir/r4
+    - añadir el HS.FHIRServer.Interop.Service al Proxy
+    - quitar el HS.FHIRServer.Interop.Operation y añadir el HS.FHIRServer.Interop.HTTPOperation. 
+    - Cambiar el target de HS.FHIRServer.Interop.Service para el HS.FHIRServer.Interop.HTTPOperation. 
+    - añadir en Service Registry HTTP - Name: FHIRv4, Host: localhost, URL: http://localhost:52773/fhir/r4/
+4) Cambiar el CapabilityStatement 
+    - Consola de terminal: 
+        
+        
+        iris session IRIS
+        set strategy = ##class(HS.FHIRServer.API.InteractionsStrategy).GetStrategyForEndpoint("/csp/healthshare/fhirserver/fhirproxy/r4")
+        set interactions = strategy.NewInteractionsInstance()
+        set capabilityStatement = interactions.LoadMetadata()
+        do capabilityStatement.%ToJSON("/irisdev/MyCapabilityStatement.json")
+
+        set strategy = ##class(HS.FHIRServer.API.InteractionsStrategy).GetStrategyForEndpoint("/csp/healthshare/fhirserver/fhirproxy/r4")
+        set interactions = strategy.NewInteractionsInstance()
+        set newCapabilityStatement = {}.%FromJSON("/irisdev/NewCapabilityStatement.json")
+        do interactions.SetMetadata(newCapabilityStatement)
+        
+5) Añadir el componente Webinar.ChangeBPL a la producción. 
+    - cambiar el target del BS
+    - aclarar el contenido del BPL

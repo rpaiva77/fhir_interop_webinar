@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2020.4 (Build 547U)" ts="2021-06-18 11:46:36">
+<Class name="Webinar.ChangeBPL">
+<Description>
+</Description>
+<Super>Ens.BusinessProcessBPL</Super>
+<TimeChanged>65913,42358.797145</TimeChanged>
+<TimeCreated>65909,64006.855708</TimeCreated>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+</Storage>
+
+<XData name="BPL">
+<Description>
+BPL Definition</Description>
+<XMLNamespace>http://www.intersystems.com/bpl</XMLNamespace>
+<Data><![CDATA[
+<process language='objectscript' request='HS.FHIRServer.Interop.Request' response='HS.FHIRServer.Interop.Response' height='2000' width='2000' >
+<sequence xend='200' yend='450' >
+<call name='Call FHIR Op' target='HS.FHIRServer.Interop.Operation' async='0' xpos='200' ypos='250' >
+<request type='HS.FHIRServer.Interop.Request' >
+<assign property="callrequest" value="request" action="set" />
+</request>
+<response type='HS.FHIRServer.Interop.Response' >
+<assign property="response" value="callresponse" action="set" />
+</response>
+</call>
+<code name='Change Resource Payload' xpos='200' ypos='350' disabled="true">
+<![CDATA[ //Identify payload as a Patient resource and convert to dynamic object
+    if ((request.Request.RequestMethod="GET") & (request.Request.RequestPath["Patient")){
+        set stream = ##class(HS.SDA3.QuickStream).%OpenId(response.QuickStreamId)
+        $$$TRACE("QuickStream Size: "_stream.SizeGet())
+        set tPatient = ##class(%DynamicObject).%FromJSON(stream)
+
+        // Modify Patient resource
+        do tPatient.%Set("gender","unknown")
+        do tPatient.%Remove("name")
+  
+        //do tPatient.%Set("active", 0, "boolean")
+        
+        //Update payload with modified Patient resource
+        set newstream=##class(HS.SDA3.QuickStream).%New()
+        do tPatient.%ToJSON(newstream)
+        set tSC=newstream.%Save() 
+        set response.QuickStreamId=newstream.%Id()
+    }]]]]><![CDATA[>
+</code>
+</sequence>
+</process>
+]]></Data>
+</XData>
+</Class>
+</Export>

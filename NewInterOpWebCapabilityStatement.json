@@ -1,0 +1,913 @@
+{
+    "resourceType": "CapabilityStatement",
+    "id": "InterSystemsFHIRServer",
+    "meta": {
+        "lastUpdated": "2021-04-12T22:49:42Z",
+        "versionId": "1"
+    },
+    "url": "<replaced-at-runtime>",
+    "version": "1",
+    "name": "InterSystems FHIR Server CapabilityStatement",
+    "status": "active",
+    "experimental": false,
+    "date": "2020-01-15",
+    "publisher": "InterSystems Corporation",
+    "kind": "instance",
+    "software": {
+        "name": "InterSystems FHIR Server",
+        "version": "2021.1"
+    },
+    "implementation": {
+        "description": "InterSystems FHIR Server",
+        "url": "<replaced-at-runtime>"
+    },
+    "fhirVersion": "4.0.1",
+    "format": [
+        "xml",
+        "json"
+    ],
+    "patchFormat": [
+        "application/json-patch+json"
+    ],
+    "rest": [
+        {
+            "mode": "server",
+            "resource": [
+                {
+                    "type": "Encounter",
+                    "versioning": "versioned",
+                    "readHistory": false,
+                    "updateCreate": true,
+                    "conditionalCreate": true,
+                    "conditionalRead": "not-supported",
+                    "conditionalUpdate": true,
+                    "conditionalDelete": "multiple",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "vread"
+                        },
+                        {
+                            "code": "create"
+                        },
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "patch"
+                        },
+                        {
+                            "code": "delete"
+                        },
+                        {
+                            "code": "history-instance"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "account",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "appointment",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "based-on",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "class",
+                            "type": "token"
+                        },
+                        {
+                            "name": "date",
+                            "type": "date"
+                        },
+                        {
+                            "name": "diagnosis",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "episode-of-care",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token"
+                        },
+                        {
+                            "name": "length",
+                            "type": "quantity"
+                        },
+                        {
+                            "name": "location",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "location-period",
+                            "type": "date"
+                        },
+                        {
+                            "name": "part-of",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "participant",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "participant-type",
+                            "type": "token"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "practitioner",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "reason-code",
+                            "type": "token"
+                        },
+                        {
+                            "name": "reason-reference",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "service-provider",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "special-arrangement",
+                            "type": "token"
+                        },
+                        {
+                            "name": "status",
+                            "type": "token"
+                        },
+                        {
+                            "name": "subject",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "type",
+                            "type": "token"
+                        }
+                    ],
+                    "searchInclude": [
+                        "Encounter.account",
+                        "Encounter.appointment",
+                        "Encounter.based-on",
+                        "Encounter.diagnosis",
+                        "Encounter.episode-of-care",
+                        "Encounter.location",
+                        "Encounter.part-of",
+                        "Encounter.participant",
+                        "Encounter.patient",
+                        "Encounter.practitioner",
+                        "Encounter.reason-reference",
+                        "Encounter.service-provider",
+                        "Encounter.subject"
+                    ],
+                    "searchRevInclude": [
+                        "CarePlan.encounter",
+                        "CareTeam.encounter",
+                        "ChargeItem.context",
+                        "Claim.encounter",
+                        "ClinicalImpression.encounter",
+                        "Communication.encounter",
+                        "CommunicationRequest.encounter",
+                        "Composition.encounter",
+                        "Condition.encounter",
+                        "DeviceRequest.encounter",
+                        "DiagnosticReport.encounter",
+                        "DocumentReference.encounter",
+                        "Encounter.part-of",
+                        "ExplanationOfBenefit.encounter",
+                        "Flag.encounter",
+                        "ImagingStudy.encounter",
+                        "List.encounter",
+                        "Media.encounter",
+                        "MedicationAdministration.context",
+                        "MedicationDispense.context",
+                        "MedicationRequest.encounter",
+                        "MedicationStatement.context",
+                        "NutritionOrder.encounter",
+                        "Observation.encounter",
+                        "Procedure.encounter",
+                        "QuestionnaireResponse.encounter",
+                        "RequestGroup.encounter",
+                        "RiskAssessment.encounter",
+                        "ServiceRequest.encounter",
+                        "Task.encounter",
+                        "VisionPrescription.encounter",
+                        "ActivityDefinition.composed-of",
+                        "ActivityDefinition.depends-on",
+                        "ActivityDefinition.derived-from",
+                        "ActivityDefinition.predecessor",
+                        "ActivityDefinition.successor",
+                        "Appointment.supporting-info",
+                        "AuditEvent.entity",
+                        "Basic.subject",
+                        "ClinicalImpression.supporting-info",
+                        "Communication.based-on",
+                        "Communication.part-of",
+                        "CommunicationRequest.based-on",
+                        "Composition.entry",
+                        "Composition.subject",
+                        "Condition.evidence-detail",
+                        "Consent.data",
+                        "Contract.subject",
+                        "DetectedIssue.implicated",
+                        "DeviceRequest.based-on",
+                        "DeviceRequest.prior-request",
+                        "DocumentManifest.item",
+                        "DocumentManifest.related-ref",
+                        "DocumentReference.related",
+                        "EventDefinition.composed-of",
+                        "EventDefinition.depends-on",
+                        "EventDefinition.derived-from",
+                        "EventDefinition.predecessor",
+                        "EventDefinition.successor",
+                        "Evidence.composed-of",
+                        "Evidence.depends-on",
+                        "Evidence.derived-from",
+                        "Evidence.predecessor",
+                        "Evidence.successor",
+                        "EvidenceVariable.composed-of",
+                        "EvidenceVariable.depends-on",
+                        "EvidenceVariable.derived-from",
+                        "EvidenceVariable.predecessor",
+                        "EvidenceVariable.successor",
+                        "ImmunizationRecommendation.information",
+                        "ImplementationGuide.resource",
+                        "Library.composed-of",
+                        "Library.depends-on",
+                        "Library.derived-from",
+                        "Library.predecessor",
+                        "Library.successor",
+                        "Linkage.item",
+                        "Linkage.source",
+                        "List.item",
+                        "Measure.composed-of",
+                        "Measure.depends-on",
+                        "Measure.derived-from",
+                        "Measure.predecessor",
+                        "Measure.successor",
+                        "MeasureReport.evaluated-resource",
+                        "MessageHeader.focus",
+                        "Observation.focus",
+                        "PaymentNotice.request",
+                        "PaymentNotice.response",
+                        "PlanDefinition.composed-of",
+                        "PlanDefinition.depends-on",
+                        "PlanDefinition.derived-from",
+                        "PlanDefinition.predecessor",
+                        "PlanDefinition.successor",
+                        "Provenance.entity",
+                        "Provenance.target",
+                        "QuestionnaireResponse.subject",
+                        "ResearchDefinition.composed-of",
+                        "ResearchDefinition.depends-on",
+                        "ResearchDefinition.derived-from",
+                        "ResearchDefinition.predecessor",
+                        "ResearchDefinition.successor",
+                        "ResearchElementDefinition.composed-of",
+                        "ResearchElementDefinition.depends-on",
+                        "ResearchElementDefinition.derived-from",
+                        "ResearchElementDefinition.predecessor",
+                        "ResearchElementDefinition.successor",
+                        "Task.based-on",
+                        "Task.focus",
+                        "Task.subject",
+                        "VerificationResult.target"
+                    ]
+                },
+                {
+                    "type": "Immunization",
+                    "versioning": "versioned",
+                    "readHistory": false,
+                    "updateCreate": true,
+                    "conditionalCreate": true,
+                    "conditionalRead": "not-supported",
+                    "conditionalUpdate": true,
+                    "conditionalDelete": "multiple",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "vread"
+                        },
+                        {
+                            "code": "create"
+                        },
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "patch"
+                        },
+                        {
+                            "code": "delete"
+                        },
+                        {
+                            "code": "history-instance"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "date",
+                            "type": "date"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token"
+                        },
+                        {
+                            "name": "location",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "lot-number",
+                            "type": "string"
+                        },
+                        {
+                            "name": "manufacturer",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "performer",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "reaction",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "reaction-date",
+                            "type": "date"
+                        },
+                        {
+                            "name": "reason-code",
+                            "type": "token"
+                        },
+                        {
+                            "name": "reason-reference",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "series",
+                            "type": "string"
+                        },
+                        {
+                            "name": "status",
+                            "type": "token"
+                        },
+                        {
+                            "name": "status-reason",
+                            "type": "token"
+                        },
+                        {
+                            "name": "target-disease",
+                            "type": "token"
+                        },
+                        {
+                            "name": "vaccine-code",
+                            "type": "token"
+                        }
+                    ],
+                    "searchInclude": [
+                        "Immunization.location",
+                        "Immunization.manufacturer",
+                        "Immunization.patient",
+                        "Immunization.performer",
+                        "Immunization.reaction",
+                        "Immunization.reason-reference"
+                    ],
+                    "searchRevInclude": [
+                        "AdverseEvent.substance",
+                        "ChargeItem.service",
+                        "ImmunizationEvaluation.immunization-event",
+                        "ImmunizationRecommendation.support",
+                        "Observation.part-of",
+                        "ActivityDefinition.composed-of",
+                        "ActivityDefinition.depends-on",
+                        "ActivityDefinition.derived-from",
+                        "ActivityDefinition.predecessor",
+                        "ActivityDefinition.successor",
+                        "Appointment.supporting-info",
+                        "AuditEvent.entity",
+                        "Basic.subject",
+                        "ClinicalImpression.supporting-info",
+                        "Communication.based-on",
+                        "Communication.part-of",
+                        "CommunicationRequest.based-on",
+                        "Composition.entry",
+                        "Composition.subject",
+                        "Condition.evidence-detail",
+                        "Consent.data",
+                        "Contract.subject",
+                        "DetectedIssue.implicated",
+                        "DeviceRequest.based-on",
+                        "DeviceRequest.prior-request",
+                        "DocumentManifest.item",
+                        "DocumentManifest.related-ref",
+                        "DocumentReference.related",
+                        "EventDefinition.composed-of",
+                        "EventDefinition.depends-on",
+                        "EventDefinition.derived-from",
+                        "EventDefinition.predecessor",
+                        "EventDefinition.successor",
+                        "Evidence.composed-of",
+                        "Evidence.depends-on",
+                        "Evidence.derived-from",
+                        "Evidence.predecessor",
+                        "Evidence.successor",
+                        "EvidenceVariable.composed-of",
+                        "EvidenceVariable.depends-on",
+                        "EvidenceVariable.derived-from",
+                        "EvidenceVariable.predecessor",
+                        "EvidenceVariable.successor",
+                        "ImmunizationRecommendation.information",
+                        "ImplementationGuide.resource",
+                        "Library.composed-of",
+                        "Library.depends-on",
+                        "Library.derived-from",
+                        "Library.predecessor",
+                        "Library.successor",
+                        "Linkage.item",
+                        "Linkage.source",
+                        "List.item",
+                        "Measure.composed-of",
+                        "Measure.depends-on",
+                        "Measure.derived-from",
+                        "Measure.predecessor",
+                        "Measure.successor",
+                        "MeasureReport.evaluated-resource",
+                        "MessageHeader.focus",
+                        "Observation.focus",
+                        "PaymentNotice.request",
+                        "PaymentNotice.response",
+                        "PlanDefinition.composed-of",
+                        "PlanDefinition.depends-on",
+                        "PlanDefinition.derived-from",
+                        "PlanDefinition.predecessor",
+                        "PlanDefinition.successor",
+                        "Provenance.entity",
+                        "Provenance.target",
+                        "QuestionnaireResponse.subject",
+                        "ResearchDefinition.composed-of",
+                        "ResearchDefinition.depends-on",
+                        "ResearchDefinition.derived-from",
+                        "ResearchDefinition.predecessor",
+                        "ResearchDefinition.successor",
+                        "ResearchElementDefinition.composed-of",
+                        "ResearchElementDefinition.depends-on",
+                        "ResearchElementDefinition.derived-from",
+                        "ResearchElementDefinition.predecessor",
+                        "ResearchElementDefinition.successor",
+                        "Task.based-on",
+                        "Task.focus",
+                        "Task.subject",
+                        "VerificationResult.target"
+                    ]
+                },
+                {
+                    "type": "Patient",
+                    "versioning": "versioned",
+                    "readHistory": false,
+                    "updateCreate": true,
+                    "conditionalCreate": true,
+                    "conditionalRead": "not-supported",
+                    "conditionalUpdate": true,
+                    "conditionalDelete": "multiple",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "vread"
+                        },
+                        {
+                            "code": "create"
+                        },
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "patch"
+                        },
+                        {
+                            "code": "delete"
+                        },
+                        {
+                            "code": "history-instance"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "active",
+                            "type": "token"
+                        },
+                        {
+                            "name": "address",
+                            "type": "string"
+                        },
+                        {
+                            "name": "address-city",
+                            "type": "string"
+                        },
+                        {
+                            "name": "address-country",
+                            "type": "string"
+                        },
+                        {
+                            "name": "address-postalcode",
+                            "type": "string"
+                        },
+                        {
+                            "name": "address-state",
+                            "type": "string"
+                        },
+                        {
+                            "name": "address-use",
+                            "type": "token"
+                        },
+                        {
+                            "name": "birthdate",
+                            "type": "date"
+                        },
+                        {
+                            "name": "death-date",
+                            "type": "date"
+                        },
+                        {
+                            "name": "deceased",
+                            "type": "token"
+                        },
+                        {
+                            "name": "email",
+                            "type": "token"
+                        },
+                        {
+                            "name": "family",
+                            "type": "string"
+                        },
+                        {
+                            "name": "gender",
+                            "type": "token"
+                        },
+                        {
+                            "name": "general-practitioner",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "given",
+                            "type": "string"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token"
+                        },
+                        {
+                            "name": "language",
+                            "type": "token"
+                        },
+                        {
+                            "name": "link",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string"
+                        },
+                        {
+                            "name": "organization",
+                            "type": "reference"
+                        },
+                        {
+                            "name": "phone",
+                            "type": "token"
+                        },
+                        {
+                            "name": "phonetic",
+                            "type": "string"
+                        },
+                        {
+                            "name": "telecom",
+                            "type": "token"
+                        }
+                    ],
+                    "searchInclude": [
+                        "Patient.general-practitioner",
+                        "Patient.link",
+                        "Patient.organization"
+                    ],
+                    "searchRevInclude": [
+                        "Account.patient",
+                        "Account.subject",
+                        "AdverseEvent.recorder",
+                        "AdverseEvent.subject",
+                        "AllergyIntolerance.asserter",
+                        "AllergyIntolerance.patient",
+                        "AllergyIntolerance.recorder",
+                        "Appointment.actor",
+                        "Appointment.patient",
+                        "AppointmentResponse.actor",
+                        "AppointmentResponse.patient",
+                        "AuditEvent.agent",
+                        "AuditEvent.patient",
+                        "AuditEvent.source",
+                        "Basic.author",
+                        "Basic.patient",
+                        "BodyStructure.patient",
+                        "CarePlan.patient",
+                        "CarePlan.performer",
+                        "CarePlan.subject",
+                        "CareTeam.participant",
+                        "CareTeam.patient",
+                        "CareTeam.subject",
+                        "ChargeItem.enterer",
+                        "ChargeItem.patient",
+                        "ChargeItem.performer-actor",
+                        "ChargeItem.subject",
+                        "Claim.patient",
+                        "Claim.payee",
+                        "ClaimResponse.patient",
+                        "ClinicalImpression.patient",
+                        "ClinicalImpression.subject",
+                        "Communication.patient",
+                        "Communication.recipient",
+                        "Communication.sender",
+                        "Communication.subject",
+                        "CommunicationRequest.patient",
+                        "CommunicationRequest.recipient",
+                        "CommunicationRequest.requester",
+                        "CommunicationRequest.sender",
+                        "CommunicationRequest.subject",
+                        "Composition.attester",
+                        "Composition.author",
+                        "Composition.patient",
+                        "Condition.asserter",
+                        "Condition.patient",
+                        "Condition.subject",
+                        "Consent.actor",
+                        "Consent.consentor",
+                        "Consent.patient",
+                        "Contract.patient",
+                        "Contract.signer",
+                        "Coverage.beneficiary",
+                        "Coverage.patient",
+                        "Coverage.payor",
+                        "Coverage.policy-holder",
+                        "Coverage.subscriber",
+                        "CoverageEligibilityRequest.patient",
+                        "CoverageEligibilityResponse.patient",
+                        "DetectedIssue.patient",
+                        "Device.patient",
+                        "DeviceRequest.patient",
+                        "DeviceRequest.performer",
+                        "DeviceRequest.subject",
+                        "DeviceUseStatement.patient",
+                        "DeviceUseStatement.subject",
+                        "DiagnosticReport.patient",
+                        "DiagnosticReport.subject",
+                        "DocumentManifest.author",
+                        "DocumentManifest.patient",
+                        "DocumentManifest.recipient",
+                        "DocumentManifest.subject",
+                        "DocumentReference.author",
+                        "DocumentReference.patient",
+                        "DocumentReference.subject",
+                        "Encounter.patient",
+                        "Encounter.subject",
+                        "EnrollmentRequest.patient",
+                        "EnrollmentRequest.subject",
+                        "EpisodeOfCare.patient",
+                        "ExplanationOfBenefit.patient",
+                        "ExplanationOfBenefit.payee",
+                        "FamilyMemberHistory.patient",
+                        "Flag.author",
+                        "Flag.patient",
+                        "Flag.subject",
+                        "Goal.patient",
+                        "Goal.subject",
+                        "Group.member",
+                        "GuidanceResponse.patient",
+                        "GuidanceResponse.subject",
+                        "ImagingStudy.patient",
+                        "ImagingStudy.performer",
+                        "ImagingStudy.subject",
+                        "Immunization.patient",
+                        "ImmunizationEvaluation.patient",
+                        "ImmunizationRecommendation.patient",
+                        "Invoice.participant",
+                        "Invoice.patient",
+                        "Invoice.recipient",
+                        "Invoice.subject",
+                        "List.patient",
+                        "List.source",
+                        "List.subject",
+                        "MeasureReport.patient",
+                        "MeasureReport.subject",
+                        "Media.operator",
+                        "Media.patient",
+                        "Media.subject",
+                        "MedicationAdministration.patient",
+                        "MedicationAdministration.performer",
+                        "MedicationAdministration.subject",
+                        "MedicationDispense.patient",
+                        "MedicationDispense.performer",
+                        "MedicationDispense.receiver",
+                        "MedicationDispense.subject",
+                        "MedicationRequest.intended-performer",
+                        "MedicationRequest.patient",
+                        "MedicationRequest.requester",
+                        "MedicationRequest.subject",
+                        "MedicationStatement.patient",
+                        "MedicationStatement.source",
+                        "MedicationStatement.subject",
+                        "MolecularSequence.patient",
+                        "NutritionOrder.patient",
+                        "Observation.patient",
+                        "Observation.performer",
+                        "Observation.subject",
+                        "Patient.link",
+                        "Person.link",
+                        "Person.patient",
+                        "Procedure.patient",
+                        "Procedure.performer",
+                        "Procedure.subject",
+                        "Provenance.agent",
+                        "Provenance.patient",
+                        "QuestionnaireResponse.author",
+                        "QuestionnaireResponse.patient",
+                        "QuestionnaireResponse.source",
+                        "RelatedPerson.patient",
+                        "RequestGroup.participant",
+                        "RequestGroup.patient",
+                        "RequestGroup.subject",
+                        "ResearchSubject.individual",
+                        "ResearchSubject.patient",
+                        "RiskAssessment.patient",
+                        "RiskAssessment.subject",
+                        "Schedule.actor",
+                        "ServiceRequest.patient",
+                        "ServiceRequest.performer",
+                        "ServiceRequest.requester",
+                        "ServiceRequest.subject",
+                        "Specimen.patient",
+                        "Specimen.subject",
+                        "SupplyDelivery.patient",
+                        "SupplyRequest.requester",
+                        "SupplyRequest.subject",
+                        "Task.owner",
+                        "Task.patient",
+                        "Task.requester",
+                        "VisionPrescription.patient",
+                        "ActivityDefinition.composed-of",
+                        "ActivityDefinition.depends-on",
+                        "ActivityDefinition.derived-from",
+                        "ActivityDefinition.predecessor",
+                        "ActivityDefinition.successor",
+                        "Appointment.supporting-info",
+                        "AuditEvent.entity",
+                        "Basic.subject",
+                        "ClinicalImpression.supporting-info",
+                        "Communication.based-on",
+                        "Communication.part-of",
+                        "CommunicationRequest.based-on",
+                        "Composition.entry",
+                        "Composition.subject",
+                        "Condition.evidence-detail",
+                        "Consent.data",
+                        "Contract.subject",
+                        "DetectedIssue.implicated",
+                        "DeviceRequest.based-on",
+                        "DeviceRequest.prior-request",
+                        "DocumentManifest.item",
+                        "DocumentManifest.related-ref",
+                        "DocumentReference.related",
+                        "EventDefinition.composed-of",
+                        "EventDefinition.depends-on",
+                        "EventDefinition.derived-from",
+                        "EventDefinition.predecessor",
+                        "EventDefinition.successor",
+                        "Evidence.composed-of",
+                        "Evidence.depends-on",
+                        "Evidence.derived-from",
+                        "Evidence.predecessor",
+                        "Evidence.successor",
+                        "EvidenceVariable.composed-of",
+                        "EvidenceVariable.depends-on",
+                        "EvidenceVariable.derived-from",
+                        "EvidenceVariable.predecessor",
+                        "EvidenceVariable.successor",
+                        "ImmunizationRecommendation.information",
+                        "ImplementationGuide.resource",
+                        "Library.composed-of",
+                        "Library.depends-on",
+                        "Library.derived-from",
+                        "Library.predecessor",
+                        "Library.successor",
+                        "Linkage.item",
+                        "Linkage.source",
+                        "List.item",
+                        "Measure.composed-of",
+                        "Measure.depends-on",
+                        "Measure.derived-from",
+                        "Measure.predecessor",
+                        "Measure.successor",
+                        "MeasureReport.evaluated-resource",
+                        "MessageHeader.focus",
+                        "Observation.focus",
+                        "PaymentNotice.request",
+                        "PaymentNotice.response",
+                        "PlanDefinition.composed-of",
+                        "PlanDefinition.depends-on",
+                        "PlanDefinition.derived-from",
+                        "PlanDefinition.predecessor",
+                        "PlanDefinition.successor",
+                        "Provenance.entity",
+                        "Provenance.target",
+                        "QuestionnaireResponse.subject",
+                        "ResearchDefinition.composed-of",
+                        "ResearchDefinition.depends-on",
+                        "ResearchDefinition.derived-from",
+                        "ResearchDefinition.predecessor",
+                        "ResearchDefinition.successor",
+                        "ResearchElementDefinition.composed-of",
+                        "ResearchElementDefinition.depends-on",
+                        "ResearchElementDefinition.derived-from",
+                        "ResearchElementDefinition.predecessor",
+                        "ResearchElementDefinition.successor",
+                        "Task.based-on",
+                        "Task.focus",
+                        "Task.subject",
+                        "VerificationResult.target"
+                    ]
+                }
+            ],
+            "interaction": [
+                {
+                    "code": "transaction"
+                }
+            ],
+            "searchParam": [
+                {
+                    "name": "_id",
+                    "type": "token"
+                },
+                {
+                    "name": "_lastUpdated",
+                    "type": "date"
+                },
+                {
+                    "name": "_profile",
+                    "type": "uri"
+                },
+                {
+                    "name": "_security",
+                    "type": "token"
+                },
+                {
+                    "name": "_source",
+                    "type": "uri"
+                },
+                {
+                    "name": "_tag",
+                    "type": "token"
+                }
+            ],
+            "operation": [
+                {
+                    "name": "everything",
+                    "definition": "http://hl7.org/fhir/OperationDefinition/Patient-everything"
+                },
+                {
+                    "name": "validate",
+                    "definition": "http://hl7.org/fhir/OperationDefinition/Resource-validate"
+                }
+            ]
+        }
+    ]
+}
