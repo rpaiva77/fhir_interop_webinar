@@ -138,7 +138,7 @@ do interactions.SetMetadata(newCapabilityStatement)
         3. 2. Cambiar todas las referencias de URL a recursos de /<RESOURCE>/<ID> a valores UUID. Hay que tener en cuenta que los valores /<RESOURCE>/<ID> en el bundle reflejarán los ID de recursos de *endpoints* externos y deben reemplazarse en InterSystems IRIS for Health 2020.4 y versiones anteriores. Cambiar estas referencias a UUID garantiza que el código FHIR de InterSystems IRIS for Health mantenga la integridad del paquete cuando se envía al punto final FHIR local.
     4. Envía el bundle al *endpoint* FHIR local, /fhirplace/r4
 
-## Para la Demo
+## Parar la Demo
 Una vez que se haya terminado la demo, los siguientes comandos van a detener cualquier contenedor que aún se esté ejecutando y eliminarlo. En el caso de que el arranque de la demo no se hay echo en modo Detached (--detach o -d), debemos debese para el container mediante CTRL+C en la consola donde se ejecuta. Tras hacerlo es necesario el siguiente comando:
 
 ```shell
